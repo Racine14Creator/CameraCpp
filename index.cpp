@@ -12,19 +12,21 @@ int main()
     Mat frame;
     namedWindow("video", 1);
     VideoCapture cap("http://IPADDRESS/video.mjpg");
-    if(!cap.isOpened())
+    if (!cap.isOpened())
     {
-        cout<<"Camera not found"<<endl;
+        cout << "Camera not found" << endl;
         getchar();
         return -1;
     }
-    while ( cap.isOpened() )
+    while (cap.isOpened())
     {
         cap >> frame;
-        if(frame.empty()) break;
+        if (frame.empty())
+            break;
 
         imshow("video", frame);
-        if(waitKey(30) >= 0) break;
-    }   
+        if (waitKey(30) >= 0)
+            break;
+    }
     return 0;
 }
